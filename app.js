@@ -8,6 +8,8 @@ const expenseButton = document.getElementById('expense-button');
 const listItems = document.getElementById('list-items');
 const li = document.getElementById('add');
 const addSpan = document.getElementById('add-span');
+const amtLeft = document.getElementById('amt-left');
+
 
 //Event Listeners
 myBudget.addEventListener("keydown",getAmount);
@@ -19,7 +21,10 @@ function getAmount(event) {
     if (event.keyCode === 13){
         event.preventDefault();
         amtBudget.textContent = "Budget:" + "$" + myBudget.value;
-        myBudget.value = '';
+        amtLeft.textContent = "Left:" + "$" + myBudget.value;
+        console.log(myBudget.value);
+        myBudget.textContent = '';
+       
     }
 }
 
@@ -35,6 +40,13 @@ function addExpenseItem(){
     newSpan.append(newExpenseAmount);
     listItems.appendChild(newLi).append(newExpenseName,newSpan);
 
+    amtLeft.value = myBudget.value;
+    const amtLeftValue = Number(amtLeft.value) - Number(expenseAmount.value);
+    amtLeft.textContent = "Left:" + "$" + amtLeftValue;
+
+
     expenseAmount.value = '';
     expenseName.value = '';
 }
+
+console.log(amtLeft.textContent);
