@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+*:focus {
+    outline: none;
+}
+
 body{
     background-color: #3d6cb9;
     font-family: 'Kelly Slab', cursive;;
@@ -70,11 +74,11 @@ li{
 
 #other
 .list-expenses{
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .amount{
-    padding-left: 8rem;
+    padding-left: 7rem;
 }
 
 .budget{
