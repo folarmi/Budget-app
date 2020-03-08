@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Budget App</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Kelly+Slab|Ramabhadra|Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <h2 id="weekly">My Weekly Budget App</h2>
+    <div class="main-wrapper">
+
+        <div class="expenses">
+            <p class="center-text">Add your Expenses Here</p>
+            <p>Enter Your Budget For the week:</p>
+            <input type="number" name="" id="my-budget">
+
+            <p>Name</p>
+            <input type="text" name="" id="expense-name" placeholder="E.g Transportation">
+
+            <p>Amount</p>
+            <input type="number" name="" id="expense-amount" placeholder="E.g 20">
+
+            <button type="submit">Add</button>
+        </div>
+        
+
+        <div class="list">
+            <p class="center-text">List</p>
+
+            <div class="list-expenses">
+                <ul>
+                    <li class="item" id="bold">Title <span class="amount"> Value</span></li>
+                    <!-- <li class="item" id="other-items">Food <span class="amount">200</span></li> -->
+                </ul>
+            </div>
+
+            <div class="budget">
+                <p id="amt-budget">Budget:</p>
+            </div>
+
+            <div class="left">
+                <p>Left:</p>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
