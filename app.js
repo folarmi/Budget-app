@@ -8,7 +8,7 @@ const expenseButton = document.getElementById('expense-button');
 const listItems = document.getElementById('list-items');
 const li = document.getElementById('add');
 const addSpan = document.getElementById('add-span');
-const amtLeft = document.getElementById('amt-left');
+var amtLeft = document.getElementById('amt-left');
 
 
 //Event Listeners
@@ -22,7 +22,7 @@ function getAmount(event) {
         event.preventDefault();
         amtBudget.textContent = "Budget:" + "$" + myBudget.value;
         amtLeft.textContent = "Left:" + "$" + myBudget.value;
-        console.log(myBudget.value);
+        amtLeft.value = myBudget.value;
         myBudget.textContent = '';
        
     }
@@ -39,14 +39,14 @@ function addExpenseItem(){
 
     newSpan.append(newExpenseAmount);
     listItems.appendChild(newLi).append(newExpenseName,newSpan);
-
-    amtLeft.value = myBudget.value;
-    const amtLeftValue = Number(amtLeft.value) - Number(expenseAmount.value);
-    amtLeft.textContent = "Left:" + "$" + amtLeftValue;
-
-
+    
+    trackBudget()
     expenseAmount.value = '';
     expenseName.value = '';
 }
 
-console.log(amtLeft.textContent);
+function trackBudget() {
+    amtLeft -= expenseAmount.value;
+    console.log(amtLeft)
+}
+
