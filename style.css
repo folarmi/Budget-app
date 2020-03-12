@@ -14,7 +14,7 @@ body{
 
 .main-wrapper{
     background-color: white;
-    border-radius: 3rem;
+    border-radius: 2rem;
     margin: 2rem;
     padding: 2rem;
 }
@@ -90,6 +90,25 @@ li{
 .left{
     background-color: #e41749;
     padding: 1rem;
+}
+
+.warning{
+    margin-top: 0;
+}
+
+@media only screen and (min-width:768px) and (max-width:960px){
+    /* Tablet */
+    .amount{
+        padding-left: 30rem;
+    }
+
+    input{
+        margin-left: 3rem;
+    }
+
+    .expenses p{
+        margin-left: 3rem;
+    }
 }
 
 @media only screen and (min-width:961px){

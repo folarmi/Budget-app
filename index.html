@@ -13,23 +13,29 @@
         <h2 id="weekly">My Weekly Budget App</h2>
     <div class="main-wrapper">
 
+        <form action="" name="my" id="my-form">
         <div class="expenses">
-            <p class="center-text">Add your Expenses Here</p>
+            <h2 class="center-text">Add your Expenses Here</h2>
             <p>Enter Your Budget For the week:</p>
-            <input type="number" name="" id="my-budget">
+            <input type="number" name="budget" id="my-budget">
 
+            <form action="" id="my-form">
             <p>Name</p>
-            <input type="text" name="" id="expense-name" placeholder="E.g Transportation">
+            <input type="text" name="expense" id="expense-name" placeholder="E.g Transportation">
+            <!-- <p class="warning">This is required</p> -->
 
             <p>Amount</p>
-            <input type="number" name="" id="expense-amount" placeholder="E.g 20">
+            <input type="number" name="amount" id="expense-amount" placeholder="E.g 20">
 
             <button type="submit" id="expense-button">Add</button>
+
+        </form>
         </div>
+    </form>
         
 
         <div class="list">
-            <p class="center-text">List</p>
+            <h2 class="center-text">List</h2>
 
             <div class="list-expenses">
                 <ul id="list-items">
