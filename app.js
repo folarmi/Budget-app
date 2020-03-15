@@ -9,21 +9,20 @@ const listItems = document.getElementById('list-items');
 const li = document.getElementById('add');
 const addSpan = document.getElementById('add-span');
 var amtLeft = document.getElementById('amt-left');
-const myForm = document.forms.my
+const myForm = document.forms.my;
+const errorMsg = document.getElementById('warning');
 
 // Arrays
 const expenseAmountArray = [];
 
 //Event Listeners
-myBudget.addEventListener("keydown",getAmount);
+myBudget.addEventListener("blur",getAmount);
 expenseButton.addEventListener('click', addExpenseItem);
 
 
 
 //Functions
 function getAmount(event) {
-    if (event.keyCode === 13){
-        event.preventDefault();
         if (myBudget.value === 0 || myBudget.value === ''){
             alert("Please enter a valid amount")
         }
@@ -31,17 +30,22 @@ function getAmount(event) {
         amtLeft.textContent = "Left:" + "$" + myBudget.value;
         amtLeft.value = myBudget.value;
         myBudget.textContent = '';
-    }
 }
 
 
 function addExpenseItem(event){ 
   event.preventDefault()
     if(myForm.elements.expense.value === "" && myForm.elements.amount.value === ""){
-        expenseButton.setAttribute('disabled', true);
-        alert('Fill out all fields')
+        expenseButton.setAttribute('disabled', true)
+        expenseAmount.style.border = 'thin solid red';
+        expenseName.style.border = 'thin solid red';
+        myBudget.style.border = 'thin solid red'
+        errorMsg.style.display = 'inline'
     } else {
-        expenseButton.removeAttribute('disabled')
+        expenseButton.removeAttribute('disabled');
+        expenseAmount.style.border = 'thin solid green';
+        expenseName.style.border = 'thin solid green';
+        myBudget.style.border = 'thin solid green'
     }
 
     const newLi = document.createElement('li');
@@ -56,31 +60,15 @@ function addExpenseItem(event){
     expenseAmountArray.push(newExpenseAmount);
    
     
-        // Getting sum of numbers
+        // Getting sum of expenses
         var sum = expenseAmountArray.reduce(function(a, b){
             return a + b;
         }, 0);
         
+        // Calculating Amount Left
         const remainingAmount = myBudget.value - sum;
         amtLeft.textContent = "Left:" + "$" + remainingAmount;
 
     expenseAmount.value = '';
     expenseName.value = '';
 }
-
-// function trackBudget() {
-//     const remainingAmount = 
-// }
-
-
-// function testFunction (){
-//     const newUser = Object.create(test);
-//     console.log(newUser);
-//     name.newUser = 'fola'
-// }
-
-// const test = {
-//     word: console.log('hello')
-// }
-
-// testFunction()
