@@ -11,7 +11,8 @@ const addSpan = document.getElementById('add-span');
 var amtLeft = document.getElementById('amt-left');
 const myForm = document.forms.my
 
-
+// Arrays
+const expenseAmountArray = [];
 
 //Event Listeners
 myBudget.addEventListener("keydown",getAmount);
@@ -48,8 +49,38 @@ function addExpenseItem(event){
     newSpan.classList.add('amount')
     
     const newExpenseName = expenseName.value;
-    const newExpenseAmount = expenseAmount.value;
+    const newExpenseAmount = Number(expenseAmount.value);
 
     newSpan.append(newExpenseAmount);
     listItems.appendChild(newLi).append(newExpenseName,newSpan);
+    expenseAmountArray.push(newExpenseAmount);
+   
+    
+        // Getting sum of numbers
+        var sum = expenseAmountArray.reduce(function(a, b){
+            return a + b;
+        }, 0);
+        
+        const remainingAmount = myBudget.value - sum;
+        amtLeft.textContent = "Left:" + "$" + remainingAmount;
+
+    expenseAmount.value = '';
+    expenseName.value = '';
 }
+
+// function trackBudget() {
+//     const remainingAmount = 
+// }
+
+
+// function testFunction (){
+//     const newUser = Object.create(test);
+//     console.log(newUser);
+//     name.newUser = 'fola'
+// }
+
+// const test = {
+//     word: console.log('hello')
+// }
+
+// testFunction()
