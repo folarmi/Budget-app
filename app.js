@@ -53,6 +53,7 @@ function addExpenseItem(event){
     newSpan.classList.add('amount')
     
     const newExpenseName = expenseName.value;
+    console.log(typeof(newExpenseName))
     const newExpenseAmount = Number(expenseAmount.value);
 
     newSpan.append(newExpenseAmount);
