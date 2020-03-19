@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    word-wrap: break-word;
 }
 
 *:focus {
@@ -44,7 +45,7 @@ input{
 }
 
 button{
-    width: 10rem;
+    width: 8rem;
     color: white;
     height: 2.6rem;
     display: block;
@@ -57,6 +58,19 @@ button{
     font-family: 'Bellota Text', cursive;
     margin-top: 1rem;
 }
+
+#expense-button,
+#save-items
+{
+    width:100%;
+    text-align: center;
+}
+
+.buttons
+{
+    display: inline-block;
+}
+
 
 .list{
     margin-left: 2rem;

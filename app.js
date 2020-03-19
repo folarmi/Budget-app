@@ -7,18 +7,47 @@ const listExpenses = document.getElementsByClassName('list-expenses');
 const expenseButton = document.getElementById('expense-button');
 const listItems = document.getElementById('list-items');
 const li = document.getElementById('add');
+const ul = document.getElementById('list-items')
 const addSpan = document.getElementById('add-span');
 var amtLeft = document.getElementById('amt-left');
 const myForm = document.forms.my;
 const errorMsg = document.getElementById('warning');
-
-// Arrays
-const expenseAmountArray = [];
+const saveItems = document.getElementById('save-items');
 
 //Event Listeners
 myBudget.addEventListener("blur",getAmount);
 expenseButton.addEventListener('click', addExpenseItem);
+saveItems.addEventListener('click',saveToLocalStorage);
 
+
+let expenses;
+    if (localStorage.getItem('expenses')){
+        ul.innerHTML = JSON.parse(localStorage.getItem('expenses'));
+        amtBudget.innerHTML = JSON.parse(localStorage.getItem('budget'));
+        amtLeft.innerHTML = JSON.parse(localStorage.getItem('left'));
+    } else {
+        expenses = [];
+        let budgetArray = [];
+        let leftArray = [];
+    }
+
+function saveToLocalStorage(event) {
+    event.preventDefault()
+    
+    let expensesArray = [];
+    let budgetArray = [];
+    let leftArray = [];
+    expensesArray.push(listItems.innerHTML);
+    budgetArray.push(amtBudget.textContent);
+    leftArray.push(amtLeft.textContent)
+    localStorage.setItem('expenses',JSON.stringify(expensesArray))
+    localStorage.setItem('budget',JSON.stringify(budgetArray))
+    localStorage.setItem('left',JSON.stringify(leftArray))
+    }
+
+
+// Arrays
+const expenseAmountArray = [];
 
 
 //Functions
@@ -53,7 +82,6 @@ function addExpenseItem(event){
     newSpan.classList.add('amount')
     
     const newExpenseName = expenseName.value;
-    console.log(typeof(newExpenseName))
     const newExpenseAmount = Number(expenseAmount.value);
 
     newSpan.append(newExpenseAmount);
@@ -73,3 +101,12 @@ function addExpenseItem(event){
     expenseAmount.value = '';
     expenseName.value = '';
 }
+
+
+
+
+
+
+
+
+
