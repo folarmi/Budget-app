@@ -13,11 +13,14 @@ var amtLeft = document.getElementById('amt-left');
 const myForm = document.forms.my;
 const errorMsg = document.getElementById('warning');
 const saveItems = document.getElementById('save-items');
+const clearBtn = document.getElementById('clear-btn')
 
 //Event Listeners
 myBudget.addEventListener("blur",getAmount);
 expenseButton.addEventListener('click', addExpenseItem);
 saveItems.addEventListener('click',saveToLocalStorage);
+clearBtn.addEventListener('click', clearLocalStorage)
+
 
 
 let expenses;
@@ -43,7 +46,20 @@ function saveToLocalStorage(event) {
     localStorage.setItem('expenses',JSON.stringify(expensesArray))
     localStorage.setItem('budget',JSON.stringify(budgetArray))
     localStorage.setItem('left',JSON.stringify(leftArray))
-    }
+}
+
+
+function clearLocalStorage(event) {
+    event.preventDefault();
+
+    localStorage.removeItem('expenses');
+    localStorage.removeItem('budget');
+    localStorage.removeItem('left');
+
+    addSpan.innerHTML = ''
+    amtBudget.innerHTML = "Budget:"
+    amtLeft.innerHTML = "Left:"
+}
 
 
 // Arrays

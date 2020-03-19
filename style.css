@@ -44,7 +44,7 @@ input{
     font-family: 'Bellota Text', cursive;
 }
 
-button{
+/* button{
     width: 8rem;
     color: white;
     height: 2.6rem;
@@ -63,12 +63,31 @@ button{
 #save-items
 {
     width:100%;
+    
+} */
+
+/* .buttons
+{
+    display: inline-block;
+} */
+
+#all-buttons
+{
+    width:100%;
     text-align: center;
 }
 
-.buttons
+.btn
 {
     display: inline-block;
+    color: white;
+    height: 2.6rem;
+    width: 3.6rem;
+    background-color: #3a478d;
+    font-family: 'Bellota Text', cursive;
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+    border-radius: 8px;
 }
 
 
